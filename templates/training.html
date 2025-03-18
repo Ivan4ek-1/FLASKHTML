@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if 'инженер' in text %}
+    {% if "инженер" in prof %}
         <div>
           <h2>Инженерные тренажеры</h2>
+            <img src="static/images/inj.jfif" alt="no image">
         </div>
-    {% else %}
+    {% elif "строитель" in prof %}
         <div>
           <h2>Научные симуляторы</h2>
+            <img src="static/images/sci.jfif" alt="no imagee">
         </div>
     {% endif %}
 {% endblock %}

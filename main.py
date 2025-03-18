@@ -14,9 +14,7 @@ def index(title):
 
 @app.route('/training/<prof>')
 def training(prof):
-    param = {}
-    param['prof'] = prof
-    return render_template('training.html', **param)
+    return render_template('training.html', prof=prof)
 
 
 if __name__ == '__main__':
