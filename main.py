@@ -19,7 +19,8 @@ def training(prof):
 
 @app.route('/list_prof/<mod>')
 def list_prof(mod):
-    return render_template('list.html', mod=mod)
+    prof_list = ['Инженер-исследователь', 'пилот']
+    return render_template('list.html', mod=mod, ls=prof_list)
 
 
 if __name__ == '__main__':
