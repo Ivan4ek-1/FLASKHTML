@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if mod == 'ol' %}
+      <div>
+        <ol>
+          <li>инженер-исследователь</li>
+          <li>пилот</li>
+        </ol>
+      </div>
+    {% elif mod == 'ul' %}
+    <div>
+      <ul>
+        <li>инженер-исследователь</li>
+        <li>пилот</li>
+      </ul>
+    </div>
+    {% else %}
+    <div>Неверный парамерт списка</div>
+  {% endif %}
+{% endblock %}
