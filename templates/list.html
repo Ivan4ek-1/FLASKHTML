@@ -4,15 +4,17 @@
     {% if mod == 'ol' %}
       <div>
         <ol>
-          <li>инженер-исследователь</li>
-          <li>пилот</li>
+            {% for pr in lst %}
+          <li>{{pr}}</li>
+            {% endfor %}
         </ol>
       </div>
     {% elif mod == 'ul' %}
     <div>
       <ul>
-        <li>инженер-исследователь</li>
-        <li>пилот</li>
+          {% for pr in lst %}
+          <li>{{pr}}</li>
+          {% endfor %}
       </ul>
     </div>
     {% else %}

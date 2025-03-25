@@ -102,5 +102,11 @@ def logout():
     return redirect("/")
 
 
+@app.route('/list_prof/<mod>')
+def list_prof(mod):
+    lst = ['инженер-исследователь', 'пилот', 'профессиональный комик']
+    return render_template('list.html', mod=mod, lst=lst)
+
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080)
