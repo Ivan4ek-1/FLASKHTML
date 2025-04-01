@@ -7,9 +7,20 @@ def first():
     return '<b>Миссия Колонизация Марса</b>'
 
 
-@app.route('/index')
-def index():
-    return '<b>И на Марсе будут яблони цвести!</b>'
+@app.route('/index/<title>')
+def index(title):
+    return render_template('base.html', title=title)
+
+
+@app.route('/training/<prof>')
+def training(prof):
+    return render_template('training.html', prof=prof)
+
+
+@app.route('/list_prof/<mod>')
+def list_prof(mod):
+    lst = ['инженер-исследователь', 'пилот', 'профессиональный комик']
+    return render_template('list.html', mod=mod, lst=lst)
 
 
 @app.route('/promotion')
@@ -97,15 +108,43 @@ def selection():
                                   <div class="form-group">
                                     <label for="classSelect">Какое у вас образование?</label>
                                     <select class="form-control" id="classSelect" name="class">
-                                      <option>Инженер-Исследователь</option>
-                                      <option>Инженер-строитель</option>
-                                      <option>Пилот</option>
-                                      <option>Метеоролог</option>
-                                      <option>Инженер по жизнеобеспечению</option>
-                                      <option>Инженер по радиационной защите</option>
-                                      <option>Врач</option>
-                                      <option>Экзобиолог</option>
+                                      <option>Начальное</option>
+                                      <option>Среднее</option>
+                                      <option>Высшее</option>
+                                      <option>Профессиональное</option>
                                     </select>
+                                    </div>
+                                    <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="check">
+                                    <label class="form-check-label" for="check1">Инженер-исследователь</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check2" name="check">
+                                    <label class="form-check-label" for="check2">Инженер-строитель</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check3" name="check">
+                                    <label class="form-check-label" for="check3">Пилот</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check4" name="check">
+                                    <label class="form-check-label" for="check4">Метеоролог</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check5" name="check">
+                                    <label class="form-check-label" for="check5">Инженер по жизнеобеспечению</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check6" name="check">
+                                    <label class="form-check-label" for="check6">Инженер по радиационной защите</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check7" name="check">
+                                    <label class="form-check-label" for="check7">Врач</label>
+                                    </div>
+                                    <div>
+                                    <input type="checkbox" class="form-check-input" id="check8" name="check">
+                                    <label class="form-check-label" for="check8">Экзобиолог</label>
                                     </div>
                                     <div class="form-group">
                                       <label for="form-check">Укажите пол</label>
