@@ -22,61 +22,9 @@ def list_prof(mod):
     lst = ['инженер-исследователь', 'пилот', 'профессиональный комик']
     return render_template('list.html', mod=mod, lst=lst)
 
-
-@app.route('/promotion')
-def promotion():
-    return '''
-    <b>Человечество вырастает из детства.</b>
-    </br><b>Человечеству мала одна планета.</b>
-    </br><b>Мы сделаем обитаемыми безжизненные пока планеты.</b>
-    </br><b>И начнем с Марса!</b>
-    </br><b>Присоединяйся!</b>
-    '''
-
-
-@app.route('/image_mars')
-def image_mars():
-    return f'''
-    <title>Привет, Марс!</title>
-    <h1><b>Жди нас, Марс!</b></h1>
-    <img src="{url_for('static', filename='images/MARS.png')}" alt='марс украли'>
-    </br>Вот она какая, красная планета.
-    '''
-
-@app.route('/promotion_image')
-def promotion_image():
-    return f'''
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-         rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-          crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-        <title>Колонизация</title>
-      </head>
-      <body>
-        <h1><b>Жди нас, Марс!</b></h1>
-        <img src="{url_for('static', filename='images/MARS.jpg')}" alt='марс украли'>
-        <div class="alert alert-success" role="alert">
-          </br><b>Человечество вырастает из детства.</b>
-        </div>
-        <div class="alert alert-primary" role="alert">
-          </br><b>Человечеству мала одна планета.</b>
-        </div>
-        <div class="alert alert-danger" role="alert">
-          </br><b>Мы сделаем обитаемыми безжизненные пока планеты.</b>
-        </div>
-        <div class="alert alert-warning" role="alert">
-          </br><b>И начнем с Марса!</b>
-        </div>
-        <div class="alert alert-info" role="alert">
-          </br><b>Присоединяйся!</b>
-        </div>
-      </body>
-    </html>'''
+@app.route('answer')
+def answer():
+    pass
 
 
 @app.route('/astronaut_selection')
@@ -115,35 +63,35 @@ def selection():
                                     </select>
                                     </div>
                                     <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="check1" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="check1">
                                     <label class="form-check-label" for="check1">Инженер-исследователь</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check2" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="check2">
                                     <label class="form-check-label" for="check2">Инженер-строитель</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check3" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check3" name="check3">
                                     <label class="form-check-label" for="check3">Пилот</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check4" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check4" name="check4">
                                     <label class="form-check-label" for="check4">Метеоролог</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check5" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check5" name="check5">
                                     <label class="form-check-label" for="check5">Инженер по жизнеобеспечению</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check6" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check6" name="check6">
                                     <label class="form-check-label" for="check6">Инженер по радиационной защите</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check7" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check7" name="check7">
                                     <label class="form-check-label" for="check7">Врач</label>
                                     </div>
                                     <div>
-                                    <input type="checkbox" class="form-check-input" id="check8" name="check">
+                                    <input type="checkbox" class="form-check-input" id="check8" name="check8">
                                     <label class="form-check-label" for="check8">Экзобиолог</label>
                                     </div>
                                     <div class="form-group">
@@ -187,65 +135,6 @@ def selection():
         print(request.form['about'])
         print(request.form['accept'])
         return "Форма отправлена"
-
-@app.route('/choice/<planet_name>')
-def choice(planet_name):
-    return f'''
-        <!doctype html>
-        <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-             rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-              crossorigin="anonymous">
-            <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-            <title>Варианты выбора</title>
-          </head>
-          <body>
-            <h1>Мое предложение: {planet_name}</h1>
-            <h4>Эта планета близка к земле</h4>
-            <div class="alert alert-success" role="alert">
-              <b>На ней много необходимых ресурсов;</b>
-            </div>
-            <div class="alert alert-primary" role="alert">
-              <b>На ней есть вода и атмосфера;</b>
-            </div>
-            <div class="alert alert-danger" role="alert">
-              <b>На ней есть небольшое магнитное поле;</b>
-            </div>
-            <div class="alert alert-warning" role="alert">
-              ><b>Наконец, она просто красива!</b>
-            </div>
-          </body>
-        </html>'''
-
-
-@app.route('/results/<nickname>/<int:level>/<float:rating>')
-def results(nickname, level, rating):
-    return f'''
-            <!doctype html>
-            <html lang="en">
-              <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-                 rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-                  crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                <title>Результаты</title>
-              </head>
-              <body>
-                <h1>Результаты отбора</h1>
-                <h4>Претендента на участие в миссии {nickname}:</h4>
-                <div class="alert alert-success" role="alert">
-                  Поздравляем! Ваш рейтинг после {level} этапа отбора составляет {rating}!
-                </div>
-                <div class="alert alert-danger" role="alert">
-                  Желаем удачи!
-                </div>
-              </body>
-            </html>'''
 
 
 if __name__ == '__main__':
