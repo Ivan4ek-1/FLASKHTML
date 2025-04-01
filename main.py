@@ -182,7 +182,7 @@ def choice(planet_name):
         </html>'''
 
 
-@app.route('/results/<nickname>/<int:level>/<float:rating>'):
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
 def results(nickname, level, rating):
     return f'''
             <!doctype html>
@@ -198,18 +198,12 @@ def results(nickname, level, rating):
               </head>
               <body>
                 <h1>Результаты отбора</h1>
-                <h4>Претендента на участие в миссии {nickname}</h4>
+                <h4>Претендента на участие в миссии {nickname}:</h4>
                 <div class="alert alert-success" role="alert">
-                  <b>На ней много необходимых ресурсов;</b>
-                </div>
-                <div class="alert alert-primary" role="alert">
-                  <b>На ней есть вода и атмосфера;</b>
+                  Поздравляем! Ваш рейтинг после {level} этапа отбора составляет {rating}!
                 </div>
                 <div class="alert alert-danger" role="alert">
-                  <b>На ней есть небольшое магнитное поле;</b>
-                </div>
-                <div class="alert alert-warning" role="alert">
-                  ><b>Наконец, она просто красива!</b>
+                  Желаем удачи!
                 </div>
               </body>
             </html>'''
