@@ -51,14 +51,14 @@ if __name__ == '__main__':
     #app.run(host='127.0.0.1', port=8000)
 
 
-# captain = User()
-# captain.surname = "Scott"
-# captain.name = "Ridley"
-# captain.age = 21
-# captain.position = 'captain'
-# captain.speciality = 'research engineer'
-# captain.address = 'module_1'
-# captain.email = "scott_chief@mars.org"
+captain = User()
+captain.surname = "Scott"
+captain.name = "Ridley"
+captain.age = 21
+captain.position = 'captain'
+captain.speciality = 'research engineer'
+captain.address = 'module_1'
+captain.email = "scott_chief@mars.org"
 
 chef = User()
 chef.surname = "Scott"
@@ -94,5 +94,4 @@ db_sess.add(captain)
 db_sess.add(chef)
 db_sess.add(navigator)
 db_sess.add(fool)
-
 db_sess.commit()
