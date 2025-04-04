@@ -1,9 +1,11 @@
 from flask import *
 
 from data import db_session
+from forms.addjob import JobsForm
 from forms.loginform import LoginForm
 from data.users import User
 from data.jobs import Jobs
+from data.db_session import global_init
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -47,9 +49,17 @@ def login():
     return render_template('login.html', title='Аварийный доступ', form=form)
 
 
+@app.route('/job')
+def job():
+    form = JobsForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('job.html', title='Аварийный доступ', form=form)
+
+
 if __name__ == '__main__':
     db_session.global_init("db/blogs.db")
-    #app.run(host='127.0.0.1', port=8000)
+    app.run(host='127.0.0.1', port=8000)
     # captain = User()
     # captain.surname = "Scott"
     # captain.name = "Ridley"
@@ -86,18 +96,25 @@ if __name__ == '__main__':
     # fool.address = 'module_3'
     # fool.email = "clown@mars.org"
 
-    firstjob = Jobs()
-    firstjob.team_leader = 1
-    firstjob.job = 'deployment of residential modules 1 and 2'
-    firstjob.work_size = 15
-    firstjob.collaborators = 2, 3
-    firstjob.start_date = 'now'
-    firstjob.is_finished = False
-
-    db_sess = db_session.create_session()
+    # firstjob = Jobs()
+    # firstjob.team_leader = 1
+    # firstjob.job = 'deployment of residential modules 1 and 2'
+    # firstjob.work_size = 15
+    # firstjob.collaborators = 2, 3
+    # firstjob.start_date = 'now'
+    # firstjob.is_finished = False
+    #
+    # db_sess = db_session.create_session()
     # db_sess.add(captain)
     # db_sess.add(chef)
     # db_sess.add(navigator)
     # db_sess.add(fool)
-    db_sess.add(firstjob)
-    db_sess.commit()
+    # db_sess.add(firstjob)
+    # db_sess.commit()
+
+
+base_name = input()
+db_session.global_init(base_name)
+base_sess = db_session.create_session()
+for user in base_sess.query(User).filter(User.address == 'module_1'):
+    print(user)
