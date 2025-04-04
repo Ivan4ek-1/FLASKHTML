@@ -51,44 +51,48 @@ if __name__ == '__main__':
     #app.run(host='127.0.0.1', port=8000)
 
 
-captain = User()
-captain.surname = "Scott"
-captain.name = "Ridley"
-captain.age = 21
-captain.position = 'captain'
-captain.speciality = 'research engineer'
-captain.address = 'module_1'
-captain.email = "scott_chief@mars.org"
+# captain = User()
+# captain.surname = "Scott"
+# captain.name = "Ridley"
+# captain.age = 21
+# captain.position = 'captain'
+# captain.speciality = 'research engineer'
+# captain.address = 'module_1'
+# captain.email = "scott_chief@mars.org"
 
 chef = User()
 chef.surname = "Scott"
-chef.name = "Ridley"
-chef.age = 21
-chef.position = 'captain'
-chef.speciality = 'research engineer'
+chef.name = "Jeff"
+chef.age = 23
+chef.position = 'chef'
+chef.speciality = 'chef'
 chef.address = 'module_1'
-chef.email = "scott_chief@mars.org"
+chef.email = "cookchief@mars.org"
 
-captain = User()
-captain.surname = "Scott"
-captain.name = "Ridley"
-captain.age = 21
-captain.position = 'captain'
-captain.speciality = 'research engineer'
-captain.address = 'module_1'
-captain.email = "scott_chief@mars.org"
+navigator = User()
+navigator.surname = "Black"
+navigator.name = "Vova"
+navigator.age = 47
+navigator.position = 'navigator'
+navigator.speciality = 'navigator'
+navigator.address = 'module_2'
+navigator.email = "black@mars.org"
 
-captain = User()
-captain.surname = "Scott"
-captain.name = "Ridley"
-captain.age = 21
-captain.position = 'captain'
-captain.speciality = 'research engineer'
-captain.address = 'module_1'
-captain.email = "scott_chief@mars.org"
+fool = User()
+fool.surname = "Carrey"
+fool.name = "Jim"
+fool.age = 18
+fool.position = 'fool'
+fool.speciality = 'standup'
+fool.address = 'module_3'
+fool.email = "clown@mars.org"
 
 
 
 db_sess = db_session.create_session()
 db_sess.add(captain)
+db_sess.add(chef)
+db_sess.add(navigator)
+db_sess.add(fool)
+
 db_sess.commit()
