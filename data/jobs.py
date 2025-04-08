@@ -17,4 +17,4 @@ class Jobs(SqlAlchemyBase, UserMixin):
     start_date = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     end_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
     is_finished = sqlalchemy.Column(sqlalchemy.Boolean, default=True, nullable=True)
-    # user = orm.relationship('User')
+    user = orm.relationship('User')

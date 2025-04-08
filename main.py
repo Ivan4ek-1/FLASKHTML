@@ -22,7 +22,7 @@ def index():
         jobs = db_sess.query(Jobs).all()
     else:
         jobs = db_sess.query(Jobs).all()
-    return render_template('base.html', jobs=jobs)
+    return render_template('index.html', jobs=jobs)
 
 
 @app.route('/training/<prof>')
@@ -66,7 +66,7 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
-@app.route('/job',  methods=['GET', 'POST'])
+@app.route('/jobs',  methods=['GET', 'POST'])
 def add_job():
     form = JobsForm()
     if form.validate_on_submit():
