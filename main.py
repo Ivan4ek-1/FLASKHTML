@@ -18,10 +18,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 @app.route('/')
 def index():
     db_sess = db_session.create_session()
-    if current_user.is_authenticated:
-        jobs = db_sess.query(Jobs).all()
-    else:
-        jobs = db_sess.query(Jobs).all()
+    jobs = db_sess.query(Jobs).all()
     return render_template('index.html', jobs=jobs)
 
 
@@ -56,7 +53,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
-        user = db_sess.query(User).filter(User.email == form.email.data).first()
+        user = db_sess.query(User).filter(User.login == form.login.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect("/")
@@ -66,7 +63,7 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
-@app.route('/jobs',  methods=['GET', 'POST'])
+@app.route('/add_job',  methods=['GET', 'POST'])
 def add_job():
     form = JobsForm()
     if form.validate_on_submit():
@@ -95,13 +92,18 @@ def register():
                                    form=form,
                                    message="Пароли не совпадают")
         db_sess = db_session.create_session()
-        if db_sess.query(User).filter(User.email == form.email.data).first():
+        if db_sess.query(User).filter(User.login == form.login.data).first():
             return render_template('register.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
         user = User(
             name=form.name.data,
-            email=form.email.data
+            surname=form.surname.data,
+            login=form.login.data,
+            age=form.age.data,
+            position=form.position.data,
+            speciality=form.speciality.data,
+            address=form.address.data
         )
         user.set_password(form.hashed_password.data)
         db_sess.add(user)
